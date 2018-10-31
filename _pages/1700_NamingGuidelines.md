@@ -6,7 +6,8 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av1701"></a> Use eUS English (AV1701) ![](/assets/images/1.png)
+
+### <a name="av1701"></a> Use US English (AV1701) ![](/assets/images/1.png)
 
 All identifiers (such as types, type members, parameters and variables) should be named using words from the American English language.
 
