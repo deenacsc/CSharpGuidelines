@@ -1,6 +1,6 @@
 ## 1.1. What is this?
 
-This document attempts to provide guidelines (or coding standards if you like) for coding in C# 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 or 7.3 that are both useful and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](http://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
+This document attempts to provide guidelines (or coding standards if you like) for coding in C# 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 or 7.3 that are both useful and pragmatic. 
 
 ## 1.2. Why would you use this document?
 
@@ -13,10 +13,6 @@ Although some might see coding guidelines as undesired overhead or something tha
 - realizes that not every developer is as capable, skilled or experienced to understand elegant, but potentially very abstract solutions;
 
 ## 1.3. Basic principles
-
-There are many unexpected things I run into during my work as a consultant, each deserving at least one guideline. Unfortunately, I still need to keep this document within a reasonable size. But unlike what some junior developers believe, that doesn't mean that something is okay just because it is not mentioned in this document.
-
-In general, if I have a discussion with a colleague about a smell that this document does not cover, I'll refer back to a set of basic principles that apply to all situations, regardless of context. These include:
 
 - The Principle of Least Surprise (or Astonishment): you should choose a solution that everyone can understand, and that keeps them on the right track.
 - Keep It Simple Stupid (a.k.a. KISS): the simplest solution is more than sufficient.
@@ -38,15 +34,7 @@ Regardless of the elegance of someone's solution, if it's too complex for the or
 - [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer) verifies over 40 of our guidelines, while typing code in Visual Studio 2017 and during CI builds. An updated Resharper settings file is included. 
 - Using [GhostDoc](http://submain.com/products/ghostdoc.aspx) you can generate XML comments for any member using a keyboard shortcut. The beauty of it is that it closely follows the MSDN-style of documentation. However, you have to be careful not to misuse this tool, and use it as a starter only. 
 
-## 1.5. Why did we create it?
-
-The idea started in 2002 when Vic Hartog (Philips Medical Systems) and I were assigned the task of writing up a [coding standard](http://www.tiobe.com/content/paperinfo/gemrcsharpcs.pdf) for C# 1.0. Since then, I've regularly added, removed and changed rules based on experiences, feedback from the community and new tooling support offered by a continuous stream of new Visual Studio releases.
-
-Additionally, after reading [Robert C. Martin](https://sites.google.com/site/unclebobconsultingllc/)'s book [Clean Code: A Handbook of Agile Software Craftsmanship](http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), I became a big fan of his ideas and decided to include some of his smells and heuristics as guidelines. Notice though, that this document is in no way a replacement for his book. I sincerely recommend that you read his book to gain a solid understanding of the rationale behind his recommendations.
-
-I've also decided to include some design guidelines in addition to simple coding guidelines. They are too important to ignore and have a big influence in reaching high quality code.
-
-## 1.6. Is this a coding standard?
+## 1.5. Is this a coding standard?
 
 The document does not state that projects must comply with these guidelines, neither does it say which guidelines are more important than others. However, we encourage projects to decide themselves which guidelines are important, what deviations a project will use, who is the consultant in case doubts arise, and what kind of layout must be used for source code. Obviously, you should make these decisions before starting the real coding work.
 
@@ -58,12 +46,10 @@ To help you in this decision, I've assigned a level of importance to each guidel
 
 ![](/assets/images/3.png) May not be applicable in all situations
 
-## 1.7. Feedback and disclaimer
+## 1.6. Feedback and disclaimer
 
 This document has been compiled using many contributions from community members, blog posts, on-line discussions and many years of developing in C#. If you have questions, comments or suggestions, just let me know by sending me an email at [dennis.doomen@avivasolutions.nl](mailto:dennis.doomen@avivasolutions.nl), [creating an issue](https://github.com/dennisdoomen/csharpguidelines/issues) or Pull Request on GitHub, or ping me at [http://twitter.com/ddoomen](http://twitter.com/ddoomen). I will try to revise and republish this document with new insights, experiences and remarks on a regular basis.
 
-Notice though that it merely reflects my view on proper C# code so Aviva Solutions will not be liable for any direct or indirect damages caused by applying the guidelines of this document. This work, a derivative of [C# Coding Guidelines by Dennis Doomen](https://csharpcodingguidelines.com/), is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit  [Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/) or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+Notice though that it merely reflects my view on proper C# code so Aviva Solutions will not be liable for any direct or indirect damages caused by applying the guidelines of this document. 
 
-## 1.8 Can I create my own version?
-
-Absolutely. The corresponding [license](https://github.com/dennisdoomen/CSharpGuidelines/blob/master/LICENSE.md) allows you to [fork](https://github.com/dennisdoomen/csharpguidelines/fork), adapt and distribute that modified version within your organization as long as you refer back to the original version here. It's not required, but you would make me a very happy man if you credit me as the original author. And if you have any great ideas, recommendations or corrections, either submit an issue, or even better, fork the repository and provide me with a pull request.
+This work, a derivative of [C# Coding Guidelines by Dennis Doomen](https://csharpcodingguidelines.com/), is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit  [Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/) or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.

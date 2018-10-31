@@ -57,12 +57,6 @@ For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single characte
 - Don't use terms like `Enum`, `Class` or `Struct` in a name.
 - Identifiers that refer to a collection type should have plural names.
 
-### <a name="av1708"></a> Name types using nouns, noun phrases or adjective phrases (AV1708) ![](/assets/images/2.png)
-For example, the name IComponent uses a descriptive noun, ICustomAttributeProvider uses a noun phrase and IPersistable uses an adjective.
-Bad examples include `SearchExamination` (a page to search for examinations), `Common` (does not end with a noun, and does not explain its purpose) and `SiteSecurity` (although the name is technically okay, it does not say anything about its purpose).
-
-Don't include terms like `Utility` or `Helper` in classes. Classes with names like that are usually static classes and are introduced without considering object-oriented principles (see also AV1008).
-
 ### <a name="av1709"></a> Name generic type parameters with descriptive names (AV1709) ![](/assets/images/2.png)
 - Always prefix type parameter names with the letter `T`.
 - Always use a descriptive name unless a single-letter name is completely self-explanatory and a longer name would not add value. Use the single letter `T` as the type parameter in that case.
@@ -88,11 +82,6 @@ Don't include terms like `Utility` or `Helper` in classes. Classes with names li
 ### <a name="av1711"></a> Name members similarly to members of related .NET Framework classes (AV1711) ![](/assets/images/3.png)
 
 .NET developers are already accustomed to the naming patterns the framework uses, so following this same pattern helps them find their way in your classes as well. For instance, if you define a class that behaves like a collection, provide members like `Add`, `Remove` and `Count` instead of `AddItem`, `Delete` or `NumberOfItems`.
-
-### <a name="av1712"></a> Avoid short names or names that can be mistaken for other names (AV1712) ![](/assets/images/1.png)
-Although technically correct, statements like the following can be confusing:
-
-	bool b001 = (lo == l0) ? (I1 == 11) : (lOl != 101);
 
 ### <a name="av1715"></a> Properly name properties (AV1715) ![](/assets/images/2.png)
 - Name properties with nouns, noun phrases, or occasionally adjective phrases. 
@@ -121,15 +110,6 @@ For instance, the following namespaces are good examples of that guideline.
 Name events with a verb or a verb phrase. For example: `Click`, `Deleted`, `Closing`, `Minimizing`, and `Arriving`. For example, the declaration of the `Search` event may look like this:
 
 	public event EventHandler<SearchArgs> Search;
-
-### <a name="av1737"></a> Use `-ing` and `-ed` to express pre-events and post-events (AV1737) ![](/assets/images/3.png)
-For example, a close event that is raised before a window is closed would be called `Closing`, and one that is raised after the window is closed would be called `Closed`. Don't use `Before` or `After` prefixes or suffixes to indicate pre and post events.
-
-Suppose you want to define events related to the deletion of an object. Avoid defining the `Deleting` and `Deleted` events as `BeginDelete` and `EndDelete`. Define those events as follows:
-
-- `Deleting`: Occurs just before the object is getting deleted
-- `Delete`: Occurs when the object needs to be deleted by the event handler.
-- `Deleted`: Occurs when the object is already deleted.
 
 ### <a name="av1738"></a> Prefix an event handler with "On" (AV1738) ![](/assets/images/3.png)
 It is good practice to prefix the method that handles an event with "On". For example, a method that handles its own `Closing` event should be named `OnClosing`. And a method that handles the `Click` event of its `okButton` field should be named `OkButtonOnClick`.
