@@ -15,7 +15,7 @@ All identifiers (such as types, type members, parameters and variables) should b
 - Favor readability over brevity. The property name `CanScrollHorizontally` is better than `ScrollableX` (an obscure reference to the X-axis).
 - Avoid using names that conflict with keywords of widely used programming languages.
 
-### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
+### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) Partially ![](/assets/images/C.png)
 
 | Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example|
 |--------------------|----------|:-----------
@@ -25,8 +25,8 @@ All identifiers (such as types, type members, parameters and variables) should b
 | Class, struct | Pascal | `AppDomain`
 | Enum | Pascal | `ErrorLevel` |
 | Enum member | Pascal | `FatalError` |
-| Resource key | Pascal | `SaveButtonTooltipText` |
-| Constant field | Pascal | `MaximumItems` |
+| Resource key | Pascal With Underscore | `FormName_ResourceKey` |
+| Constant field | Capital | `CONSTANT_FIELD` |
 | Private static readonly field | Pascal | `RedValue` |
 | Private field | Camel | `listItem` |
 | Non-private field | Pascal | `MainPanel` |
@@ -44,10 +44,14 @@ All identifiers (such as types, type members, parameters and variables) should b
 
 **Note:** in case of ambiguity, the rule higher in the table wins.
 
-### <a name="av1704"></a> Don't include numbers in variables, parameters and type members (AV1704) ![](/assets/images/3.png)
+### <a name="av1704"></a> Don't include numbers in variables, parameters and type members (AV1704) ![](/assets/images/3.png) ![](/assets/images/C.png)
 In most cases they are a lazy excuse for not defining a clear and intention-revealing name.
 
-### <a name="av1706"></a> Don't use abbreviations (AV1706) ![](/assets/images/2.png)
+### <a name="av1705"></a> Don't prefix fields (AV1705) ![](/assets/images/1.png)
+
+For example, don't use `g_` or `s_` to distinguish static from non-static fields. A method in which it is difficult to distinguish local variables from member fields is generally too big. Examples of incorrect identifier names are: `_currentUser`, `mUserName`, `m_loginTime`.
+
+### <a name="av1706"></a> Don't use abbreviations (AV1706) ![](/assets/images/2.png) ![](/assets/images/C.png)
 For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single character variable names, such as `i` or `q`. Use `index` or `query` instead.
 
 **Exceptions:** Use well-known acronyms and abbreviations that are widely accepted or well-known in your work domain. For instance, use acronym `UI` instead of `UserInterface` and abbreviation `Id` instead of `Identity`.
@@ -62,7 +66,7 @@ For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single characte
 - Always use a descriptive name unless a single-letter name is completely self-explanatory and a longer name would not add value. Use the single letter `T` as the type parameter in that case.
 - Consider indicating constraints placed on a type parameter in the name of the parameter. For example, a parameter constrained to `ISession` may be called `TSession`.
 
-### <a name="av1710"></a> Don't repeat the name of a class or enumeration in its members (AV1710) ![](/assets/images/1.png)
+### <a name="av1710"></a> Don't repeat the name of a class or enumeration in its members (AV1710) ![](/assets/images/1.png) ![](/assets/images/C.png)
 
 	class Employee
 	{
@@ -79,11 +83,18 @@ For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single characte
 		RegisterForMeeting() {...}
 	}
 
-### <a name="av1711"></a> Name members similarly to members of related .NET Framework classes (AV1711) ![](/assets/images/3.png)
+### <a name="av1711"></a> Name members similarly to members of related .NET Framework classes (AV1711) ![](/assets/images/3.png) ![](/assets/images/C.png)
 
 .NET developers are already accustomed to the naming patterns the framework uses, so following this same pattern helps them find their way in your classes as well. For instance, if you define a class that behaves like a collection, provide members like `Add`, `Remove` and `Count` instead of `AddItem`, `Delete` or `NumberOfItems`.
 
-### <a name="av1715"></a> Properly name properties (AV1715) ![](/assets/images/2.png)
+### <a name="av1712"></a> Name members similarly to members of related .NET Framework classes (AV1712) ![](/assets/images/1.png) ![](/assets/images/C.png)
+
+Avoid short names or names that can be mistaken for other names (AV1712) 
+Although technically correct, statements like the following can be confusing:
+
+	bool b001 = (lo == l0) ? (I1 == 11) : (lOl != 101);
+
+### <a name="av1715"></a> Properly name properties (AV1715) ![](/assets/images/2.png) ![](/assets/images/C.png)
 - Name properties with nouns, noun phrases, or occasionally adjective phrases. 
 - Name boolean properties with an affirmative phrase. E.g. `CanSeek` instead of `CannotSeek`.
 - Consider prefixing boolean properties with `Is`, `Has`, `Can`, `Allows`, or `Supports`.
@@ -95,9 +106,8 @@ Name a method or local function using a verb like `Show` or a verb-object pair s
 Also, don't include `And` in the name of a method or local function. That implies that it is doing more than one thing, which violates the Single Responsibility Principle explained in AV1115.
 
 ### <a name="av1725"></a> Name namespaces using names, layers, verbs and features (AV1725) ![](/assets/images/3.png)
-For instance, the following namespaces are good examples of that guideline.
+For instance, the following namespaces are good examples of this guideline.
 
-	AvivaSolutions.Commerce.Web
 	NHibernate.Extensibility
 	Microsoft.ServiceModel.WebApi
 	Microsoft.VisualStudio.Debugging
@@ -111,16 +121,32 @@ Name events with a verb or a verb phrase. For example: `Click`, `Deleted`, `Clos
 
 	public event EventHandler<SearchArgs> Search;
 
-### <a name="av1738"></a> Prefix an event handler with "On" (AV1738) ![](/assets/images/3.png)
+### <a name="av1738"></a> Prefix an event handler with "On" (AV1738) ![](/assets/images/3.png) ![](/assets/images/C.png)
 It is good practice to prefix the method that handles an event with "On". For example, a method that handles its own `Closing` event should be named `OnClosing`. And a method that handles the `Click` event of its `okButton` field should be named `OkButtonOnClick`.
 
-### <a name="av1739"></a> Use an underscore for irrelevant lambda parameters (AV1739) ![](/assets/images/3.png)
+### <a name="av1739"></a> Use an underscore for irrelevant lambda parameters (AV1739) ![](/assets/images/3.png) ![](/assets/images/C.png)
 If you use a lambda expression (for instance, to subscribe to an event) and the actual parameters of the event are irrelevant, use the following convention to make that explicit:
 
 	button.Click += (_, __) => HandleClick();
 
-### <a name="av1745"></a> Group extension methods in a class suffixed with Extensions (AV1745) ![](/assets/images/3.png)
+### <a name="av1745"></a> Group extension methods in a class suffixed with Extensions (AV1745) ![](/assets/images/3.png) ![](/assets/images/C.png)
 If the name of an extension method conflicts with another member or extension method, you must prefix the call with the class name. Having them in a dedicated class with the `Extensions` suffix improves readability.
 
-### <a name="av1755"></a> Postfix asynchronous methods with `Async` or `TaskAsync` (AV1755) ![](/assets/images/2.png)
+### <a name="av1755"></a> Postfix asynchronous methods with `Async` or `TaskAsync` (AV1755) ![](/assets/images/2.png) ![](/assets/images/C.png)
 The general convention for methods and local functions that return `Task` or `Task<TResult>` is to postfix them with `Async`. But if such a method already exists, use `TaskAsync` instead.
+
+### <a name="av1771"></a> Suffix custom attribute classes with `Attribute` (AV1771) ![](/assets/images/1.png)
+
+### <a name="av1772"></a> Suffix custom exception classes with `Exception` (AV1772) ![](/assets/images/1.png)
+
+### <a name="av1773"></a> Suffix gui variable names with its types (AV1773) ![](/assets/images/2.png)
+Following are some good examples of that guideline.
+
+	cancelButton
+	userList
+	nameLabel
+	passwordTextBox
+	optionCheckBox
+
+### <a name="av1774"></a> Do not use an enum suffix on enum type names (AV1774) ![](/assets/images/2.png)
+

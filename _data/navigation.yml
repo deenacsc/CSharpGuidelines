@@ -1,10 +1,3 @@
-# main links
-main:
-  - title: "The Continuous Improver"
-    url: https://www.continuousimprover.com
-  - title: "Aviva Solutions"
-    url: https://www.avivasolutions.nl
-
 sidebar:
   - title: Introduction
     url: /
@@ -15,12 +8,8 @@ sidebar:
         url: /#12-why-would-you-use-this-document
       - title: Basic Principles
         url: /#13-basic-principles
-      - title: How do you get started?
-        url: /#14-how-do-you-get-started
-      - title: Why did we create it?
-        url: /#15-why-did-we-create-it
-      - title: Can I create my own version?
-        url: /#18-can-i-create-my-own-version
+      - title: Is this a coding standard?
+        url: /#14-is-this-a-coding-standard
 
   - title: Guidelines
     children:
@@ -44,10 +33,3 @@ sidebar:
         url: /layout-guidelines/
       - title: Resources & Articles
         url: /resources/
-
-  - title: Community Support
-    children:
-      - title: C# Guidelines Analyzer
-        url: https://github.com/bkoelman/CSharpGuidelinesAnalyzer
-      - title: Russian Translation (by Sergey Russkikh)
-        url: https://github.com/SergeyRusskih/CSharpGuidelines.Russian

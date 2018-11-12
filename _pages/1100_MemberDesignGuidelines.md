@@ -25,7 +25,7 @@ Having properties that cannot be used at the same time typically signals a type 
 
 This violation is often seen in domain models and introduces all kinds of conditional logic related to those conflicting rules, causing a ripple effect that significantly increases the maintenance burden.
 
-### <a name="av1115"></a> A property, method or local function should do only one thing (AV1115) ![](/assets/images/1.png)
+### <a name="av1115"></a> A property, method or local function should do only one thing (AV1115) ![](/assets/images/1.png) ![](/assets/images/C.png)
 
 Similarly to rule AV1000, a method body should have a single responsibility.
 
@@ -35,7 +35,7 @@ A stateful object is an object that contains many properties and lots of behavio
 
 A classic example of this is the `HttpContext.Current` property, part of ASP.NET. Many see the `HttpContext` class as a source of a lot of ugly code. In fact, the testing guideline [Isolate the Ugly Stuff](http://codebetter.com/jeremymiller/2005/10/21/haacked-on-tdd-and-jeremys-first-rule-of-tdd/) often refers to this class.
 
-### <a name="av1130"></a> Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130) ![](/assets/images/2.png)
+### <a name="av1130"></a> Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130) ![](/assets/images/2.png) ![](/assets/images/C.png)
 
 You generally don't want callers to be able to change an internal collection, so don't return arrays, lists or other collection classes directly. Instead, return an `IEnumerable<T>`, or, if the caller must be able to determine the count, an `ICollection<T>`.
 
@@ -43,10 +43,9 @@ You generally don't want callers to be able to change an internal collection, so
 
 **Exception:** Immutable collections such as `ImmutableArray<T>`, `ImmutableList<T>` and `ImmutableDictionary<TKey, TValue>` prevent modifications from the outside and are thus allowed.
 
-### <a name="av1135"></a> Properties, arguments and return values representing strings or collections should never be `null` (AV1135) ![](/assets/images/1.png)
+### <a name="av1135"></a> Properties, arguments and return values representing collections should never be `null` (AV1135) ![](/assets/images/1.png)
 
-Returning `null` can be unexpected by the caller. Always return an empty collection or an empty string instead of a `null` reference. This also prevents cluttering your code base with additional checks for `null`, or even worse, `string.IsNullOrEmpty()`.
-
+Returning `null` can be unexpected by the caller. Always return an empty collection instead of a `null` reference. This also prevents cluttering your code base with additional checks for `null`.
 ### <a name="av1137"></a> Define parameters as specific as possible (AV1137) ![](/assets/images/2.png)
 
 If your method or local function needs a specific piece of data, define parameters as specific as that and don't take a container object instead. For instance, consider a method that needs a connection string that is exposed through a central `IConfiguration` interface. Rather than taking a dependency on the entire configuration, just define a parameter for the connection string. This not only prevents unnecessary coupling, it also improves maintainability in the long run.
@@ -56,3 +55,19 @@ If your method or local function needs a specific piece of data, define paramete
 ### <a name="av1140"></a> Consider using domain-specific value types rather than primitives (AV1140) ![](/assets/images/3.png)
 
 Instead of using strings, integers and decimals for representing domain-specific types such as an ISBN number, an email address or amount of money, consider creating dedicated value objects that wrap both the data and the validation rules that apply to it. By doing this, you prevent ending up having multiple implementations of the same business rules, which both improves maintainability and prevents bugs.
+
+### <a name="av1151"></a> Prefer enums to constants (AV1151) ![](/assets/images/3.png)
+If constants can be functionally grouped together, create enums instead of individual constants.
+ 
+	// Good example
+	enum Status { Ready, Pending, Done };
+	
+	// Avoid this
+	public const int READY = 0;
+	public const int PENDING = 1;
+	public const int DONE = 2;	
+
+### <a name="av1152"></a> Strings that will be presented to the end users should never be hardcoded (AV1152) ![](/assets/images/1.png)
+Always create resource entries for all the strings that will be presented to the end users.
+
+### <a name="av1153"></a> Do not have non private fields in a class. Use Properties instead  (AV1153) ![](/assets/images/1.png)

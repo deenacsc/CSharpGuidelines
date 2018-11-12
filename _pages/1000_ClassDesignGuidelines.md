@@ -6,7 +6,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av1000"></a> A class or interface should have a single purpose (AV1000) ![](/assets/images/1.png)
+### <a name="av1000"></a> A class or interface should have a single purpose (AV1000) ![](/assets/images/1.png) ![](/assets/images/C.png)
 
 A class or interface should have a single purpose within the system it functions in. In general, a class either represents a primitive type like an email or ISBN number, an abstraction of some business concept, a plain data structure, or is responsible for orchestrating the interaction between other classes. It is never a combination of those. This rule is widely known as the [Single Responsibility Principle](https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html), one of the S.O.L.I.D. principles.
 
@@ -38,43 +38,6 @@ Interfaces are a very effective mechanism for decoupling classes from each other
 - They allow the replacement of the actual implementation with a dummy implementation or a fake object in a unit test; 
 - Using a dependency injection framework you can centralize the choice of which class is used whenever a specific interface is requested.
 
-### <a name="av1008"></a> Avoid static classes (AV1008) ![](/assets/images/3.png)
-
-With the exception of extension method containers, static classes very often lead to badly designed code. They are also very difficult, if not impossible, to test in isolation, unless you're willing to use some very hacky tools.
-
-**Note:** If you really need that static class, mark it as static so that the compiler can prevent instance members and instantiating your class. This relieves you of creating an explicit private constructor.
-
-### <a name="av1010"></a> Don't suppress compiler warnings using the `new` keyword (AV1010) ![](/assets/images/1.png)
-
-Compiler warning [CS0114](https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0114) is issued when breaking [Polymorphism](http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming), one of the most essential object-orientation principles.
-The warning goes away when you add the `new` keyword, but it keeps sub-classes difficult to understand. Consider the following two classes:
-
-	public class Book  
-	{
-		public virtual void Print()  
-		{
-			Console.WriteLine("Printing Book");
-		}  
-	}
-	
-	public class PocketBook : Book  
-	{
-		public new void Print()
-		{
-			Console.WriteLine("Printing PocketBook");
-		}  
-	}
-
-This will cause behavior that you would not normally expect from class hierarchies:
-
-	PocketBook pocketBook = new PocketBook();
-	
-	pocketBook.Print(); // Outputs "Printing PocketBook "
-	
-	((Book)pocketBook).Print(); // Outputs "Printing Book"
-
-It should not make a difference whether you call `Print()` through a reference to the base class or through the derived class.
-
 ### <a name="av1011"></a> It should be possible to treat a derived object as if it were a base class object (AV1011) ![](/assets/images/2.png)
 
 In other words, you should be able to use a reference to an object of a derived class wherever a reference to its base class object is used without knowing the specific derived class. A very notorious example of a violation of this rule is throwing a `NotImplementedException` when overriding some of the base-class methods. A less subtle example is not honoring the behavior expected by the base class.   
@@ -103,28 +66,8 @@ This means that two classes know about each other's public members or rely on ea
 
 **Exception:** Domain models such as defined in [Domain-Driven Design](http://domaindrivendesign.org/) tend to occasionally involve bidirectional associations that model real-life associations. In those cases, make sure they are really necessary, and if they are, keep them in.
 
-### <a name="av1025"></a> Classes should have state and behavior (AV1025) ![](/assets/images/1.png)
+### <a name="av1051"></a> Implement Dispose() when appropriate (AV1051) ![](/assets/images/1.png)
+Always clean up unmanaged resource and unsubscribe from events by implementing Dispose() in the class.
 
-In general, if you find a lot of data-only classes in your code base, you probably also have a few (static) classes with a lot of behavior (see AV1008). Use the principles of object-orientation explained in this section and move the logic close to the data it applies to.
-
-**Exception:** The only exceptions to this rule are classes that are used to transfer data over a communication channel, also called [Data Transfer Objects](http://martinfowler.com/eaaCatalog/dataTransferObject.html), or a class that wraps several parameters of a method.
-
-### <a name="av1026"></a> Classes should protect the consistency of their internal state (AV1026) ![](/assets/images/1.png)
-
-Validate incoming arguments from public members. For example:
-
-	public void SetAge(int years)
-	{
-		AssertValueIsInRange(years, 0, 200, nameof(years));
-		
-		this.age = years;
-	}
-
-Protect invariants on internal state. For example:
-
-	public void Render()
-	{
-		AssertNotDisposed();
-		
-		// ...
-	}
+### <a name="av1052"></a> Avoid having multiple classes or multiple namespaces in a single file (AV1052) ![](/assets/images/2.png)
+There are some type of short classes that are never instantiated outside the context of the parent class. Make a judgement call depending on the design.
