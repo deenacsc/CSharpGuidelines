@@ -1,35 +1,35 @@
 sidebar:
   - title: Introduction
-    url: /
+    url: /codingguidelines/
     children:
       - title: What is this?
-        url: /#11-what-is-this
+        url: /codingguidelines/#11-what-is-this
       - title: Why would you use this document?
-        url: /#12-why-would-you-use-this-document
+        url: /codingguidelines/#12-why-would-you-use-this-document
       - title: Basic Principles
-        url: /#13-basic-principles
+        url: /codingguidelines/#13-basic-principles
       - title: Is this a coding standard?
-        url: /#14-is-this-a-coding-standard
+        url: /codingguidelines/#14-is-this-a-coding-standard
 
   - title: Guidelines
     children:
-      - title: Class Design (AV1000)
-        url: /class-design-guidelines/
-      - title: Member Design (AV1100)
-        url: /member-design-guidelines/
-      - title: Miscellaneous (AV1200)
-        url: /misc-design-guidelines/
-      - title: Maintainability Guidelines (AV1500)
-        url: /maintainability-guidelines/
-      - title: Naming Conventions (AV1700)
-        url: /naming-guidelines/
-      - title: Performance Guidelines (AV1800)
-        url: /performance-guidelines/
-      - title: .NET Framework Usage (AV2200)
-        url: /framework-guidelines/
-      - title: Comments and XML Documentation (AV2300)
-        url: /documentation-guidelines/
-      - title: Layout Guidelines (AV2400)
-        url: /layout-guidelines/
+      - title: Class Design (AV1000/CRD1000)
+        url: /codingguidelines/class-design-guidelines/
+      - title: Member Design (AV1100/CRD1100)
+        url: /codingguidelines/member-design-guidelines/
+      - title: Miscellaneous (AV1200/CRD1200)
+        url: /codingguidelines/misc-design-guidelines/
+      - title: Maintainability Guidelines (AV1500/CRD1500)
+        url: /codingguidelines/maintainability-guidelines/
+      - title: Naming Conventions (AV1700/CRD1700)
+        url: /codingguidelines/naming-guidelines/
+      - title: Performance Guidelines (AV1800/CRD1800)
+        url: /codingguidelines/performance-guidelines/
+      - title: .NET Framework Usage (AV2200/CRD2200)
+        url: /codingguidelines/framework-guidelines/
+      - title: Comments and XML Documentation (AV2300/CRD2300)
+        url: /codingguidelines/documentation-guidelines/
+      - title: Layout Guidelines (AV2400/CRD2400)
+        url: /codingguidelines/layout-guidelines/
       - title: Resources & Articles
-        url: /resources/
+        url: /codingguidelines/resources/

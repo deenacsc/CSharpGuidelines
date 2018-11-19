@@ -21,14 +21,18 @@ Double negatives are more difficult to grasp than simple expressions, and people
 
 ### <a name="av1505"></a> Name assemblies after their contained namespace (AV1505) ![](/assets/images/3.png) ![](/assets/images/A.png)
 All DLLs should be named according to the pattern *Company*.*Component*.dll where *Company* refers to your company's name and *Component* contains one or more dot-separated clauses. For example `Crd.Web.Controls.dll`.
+
 As an example, consider a group of classes organized under the namespace `Crd.Web.Binding` exposed by a certain assembly. According to this guideline, that assembly should be called `Crd.Web.Binding.dll`. 
+
 **Exception:** If you decide to combine classes from multiple unrelated namespaces into one assembly, consider suffixing the assembly name with `Core`, but do not use that suffix in the namespaces. For instance, `Crd.Consulting.Core.dll`.
 
 ### <a name="av1506"></a> Name a source file to the type it contains (AV1506) ![](/assets/images/3.png)  ![](/assets/images/A.png)
 Use Pascal casing to name the file and don't use underscores. Don't include (the number of) generic type parameters in the file name.
 
 ### <a name="av1507"></a> Limit the contents of a source code file to one type (AV1507) ![](/assets/images/3.png)  ![](/assets/images/A.png)
+
 **Exception:** Nested types should be part of the same file.
+
 **Exception:** Types that only differ by their number of generic type parameters should be part of the same file.
 
 ### <a name="crd1500"></a> Avoid files with more than 500 lines (CRD1500) ![](/assets/images/1.png)
@@ -365,7 +369,9 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
     }
 
 If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1135, you must use overloaded methods instead.
+
 **Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value.
+
 **Note:** When an interface method defines an optional parameter, its default value is discarded during overload resolution unless you call the concrete class through the interface reference. See [this post by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
 
 ### <a name="av1561"></a> Don't declare signatures with more than 5 parameters (AV1561) ![](/assets/images/1.png)  ![](/assets/images/A.png)
@@ -373,10 +379,12 @@ To keep constructors, methods, delegates and local functions small and focused, 
 
 If you want to use more parameters, use a structure or class to pass multiple arguments, as explained in the [Specification design pattern](http://en.wikipedia.org/wiki/Specification_pattern). 
 In general, the fewer the parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
+
 **Exception:** A parameter that is a collection of tuples is allowed.
 
 ### <a name="av1562"></a> Don't use `ref` or `out` parameters (AV1562) ![](/assets/images/1.png) ![](/assets/images/A.png)
 They make code less understandable and might cause people to introduce bugs. Instead, return compound objects or tuples.
+
 **Exception:** Calling and declaring members that implement the [TryParse](https://docs.microsoft.com/en-us/dotnet/api/system.int32.tryparse) pattern is allowed. For example:
 
 	bool success = int.TryParse(text, out int number);
