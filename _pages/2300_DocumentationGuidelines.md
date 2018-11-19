@@ -6,7 +6,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av2305"></a> Document all `public`, `protected` and `internal` types and members (AV2305) ![](/assets/images/2.png) ![](/assets/images/C.png)
+### <a name="av2305"></a> Document all `public`, `protected` and `internal` types and members (AV2305) ![](/assets/images/2.png) ![](/assets/images/A.png)
 
 Documenting your code allows Visual Studio to pop-up the documentation when your class is used somewhere else. Furthermore, by properly documenting your classes, tools can generate professionally looking class documentation.
 
