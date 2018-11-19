@@ -125,3 +125,6 @@ Avoid explicit casting and use pattern matching to avoid exceptions and improve 
 	 
 ### <a name="crd2202"></a> Use `StringBuilder` class to build  strings over several lines of code or within a loop (CRD2202) ![](/assets/images/1.png) 
 You would end up creating temporary strings in memory if you used either + style concatenation or String.Concat. Refer to this [blog](http://geekswithblogs.net/johnsperfblog/archive/2005/05/27/40777.aspx) for more information.
+
+
+

@@ -50,3 +50,7 @@ Instead of using strings, integers and decimals for representing domain-specific
 
 ### <a name="crd1100"></a> Do not have non private fields in a class (CRD1100) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Always use a property instead of a non private field.
+
+
+
+

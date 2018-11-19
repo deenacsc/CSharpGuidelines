@@ -72,6 +72,17 @@ Invoke using the null conditional operator, because it additionally prevents con
 	{
 		Notify?.Invoke(this, args);
 	}
+	
+### <a name="crd1202"></a> Use delegate inference instead of explicit delegate instantiation (CRD1202) ![](/assets/images/2.png) ![](/assets/images/R.png)
+	
+	delegate void SomeDelegate();
+    public void SomeMethod() 
+    {        
+    }
+    
+    SomeDelegate someDelegate = SomeMethod;
+    // Avoid 
+    SomeDelegate someDelegate = new SomeDelegate(SomeMethod);
 
 ### <a name="av1225"></a> Use a protected virtual method to raise each event (AV1225) ![](/assets/images/2.png) ![](/assets/images/A.png)
 Complying with this guideline allows derived classes to handle a base class event by overriding the protected method. The name of the protected virtual method should be the same as the event name prefixed with `On`. For example, the protected virtual method for an event named `TimeChanged` is named `OnTimeChanged`.
@@ -110,7 +121,7 @@ Instead of casting to and from the object type in generic types or methods, use 
 		}  
 	}
 
-### <a name="crd1202"></a> Always prefer using the generics flavor (CRD1202) ![](/assets/images/1.png)
+### <a name="crd1203"></a> Always prefer using the generics flavor (CRD1203) ![](/assets/images/1.png)
 If a class or a method offers both generic and non-generic flavors, always prefer using the generics flavor. This prevents unnecessary boxing and unboxing and also performs compile time validation.
 
 	// Do
@@ -133,7 +144,7 @@ If a class or a method offers both generic and non-generic flavors, always prefe
      t += x;
 	}
 	
-### <a name="crd1203"></a> Use explicit interface implementation on all methods when implementing a generic interface that derives from a non generic interface (CRD1203) ![](/assets/images/2.png)
+### <a name="crd1204"></a> Use explicit interface implementation on all methods when implementing a generic interface that derives from a non generic interface (CRD1204) ![](/assets/images/2.png)
 When implementing a generic interface that derives from an equivalent non-generic interface (such as IEnumerable<T>) use explicit interface implementation on all methods, and implement the non-generic methods by delegating to the generic ones
 	
 	class MyCollection<T> : IEnumerable<T> 
@@ -169,7 +180,7 @@ Since LINQ queries use deferred execution, returning `query` will actually retur
 ### <a name="av1251"></a> Do not use `this` and `base` prefixes unless it is required (AV1251) ![](/assets/images/1.png)
 In a class hierarchy, it is not necessary to know at which level a member is declared to use it. Refactoring derived classes is harder if that level is fixed in the code.
 
-### <a name="crd1204"></a> Use auto properties if applicable (CRD1204) ![](/assets/images/1.png) ![](/assets/images/R.png)
+### <a name="crd1205"></a> Use auto properties if applicable (CRD1205) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Avoid explicit properties that do nothing except to access a member variable. Use automatic properties instead
 
 	// Don't
@@ -199,14 +210,16 @@ Avoid explicit properties that do nothing except to access a member variable. Us
         }
     }
 	
-### <a name="crd1205"></a> Strings that will be presented to the end users should never be hardcoded (CRD1205) ![](/assets/images/1.png) ![](/assets/images/R.png)
+### <a name="crd1206"></a> Strings that will be presented to the end users should never be hardcoded (CRD1206) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Always create resource entries for all the strings that will be presented to the end users.
 
-### <a name="crd1206"></a> Do not manually edit any machine generated code (CRD1206) ![](/assets/images/3.png)
+### <a name="crd1207"></a> Do not manually edit any machine generated code (CRD1207) ![](/assets/images/3.png)
 Manual changes made to `Designer.cs` or `.resx` or similar files will be overwritten the next time the code is generated. Make changes to the original `.cs` files in such cases.
 
-### <a name="crd1207"></a> Avoid friend assemblies (CRD1207) ![](/assets/images/2.png)	
+### <a name="crd1208"></a> Avoid friend assemblies (CRD1208) ![](/assets/images/2.png)	
 Use friend assemblies only for unit test projects as they increase inter-assembly coupling.
 
-### <a name="crd1208"></a> Avoid using late bindings (CRD1208) ![](/assets/images/2.png)
+### <a name="crd1209"></a> Avoid using late bindings (CRD1209) ![](/assets/images/2.png)
 Do not use late-binding invocation when early-binding is possible. In other words don’t use reflection.
+
+

@@ -402,3 +402,5 @@ Often, a method taking such a bool is doing more than one thing and needs to be 
 
 ### <a name="av1575"></a> Don't comment out code (AV1575) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Never check in code that is commented out. Instead, use a work item tracking system to keep track of some work to be done. Nobody knows what to do when they encounter a block of commented-out code. Was it temporarily disabled for testing purposes? Was it copied as an example? Should I delete it?
+
+

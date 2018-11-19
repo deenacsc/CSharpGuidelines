@@ -57,3 +57,7 @@ This means that two classes know about each other's public members or rely on ea
 
 **Exception:** Domain models such as defined in [Domain-Driven Design](http://domaindrivendesign.org/) tend to occasionally involve bidirectional associations that model real-life associations. In those cases, make sure they are really necessary, and if they are, keep them in.
 
+
+
+
+

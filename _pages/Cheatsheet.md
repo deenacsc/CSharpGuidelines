@@ -60,14 +60,15 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use a protected virtual method to raise each event (AV1225)
 * Don't pass `null` as the `sender` argument when raising an event (AV1235)
 * Use generic constraints if applicable (AV1240)
-* Always prefer using the generics flavor (CRD1202)
-* Use explicit interface implementation on all methods when implementing a generic interface that derives from a non generic interface (CRD1203)
+* Use delegate inference instead of explicit delegate instantiation (CRD1202)
+* Always prefer using the generics flavor (CRD1203)
+* Use explicit interface implementation on all methods when implementing a generic interface that derives from a non generic interface (CRD1204)
 * Evaluate the result of a LINQ expression before returning it (AV1250)
 * Do not use `this` and `base` prefixes unless it is required (AV1251)
-* Use auto properties (CRD1204)
-* Strings that will be presented to the end users should never be hardcoded (CRD1205)
-* Avoid friend assemblies (CRD1207)
-* Avoid using late bindings (CRD1208)
+* Use auto properties (CRD1205)
+* Strings that will be presented to the end users should never be hardcoded (CRD1206)
+* Avoid friend assemblies (CRD1208)
+* Avoid using late bindings (CRD1209)
 
 <br/>
 **Framework Guidelines**

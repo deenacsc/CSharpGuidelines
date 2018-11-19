@@ -16,3 +16,5 @@ Try to focus comments on the *why* and *what* of a code block and not the *how*.
 
 ### <a name="av2351"></a> Use InheritDoc (CRD2300) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Add `<inheritdoc/>` tag to XML comments in C# source code to inherit XML comments from base classes, interfaces, and similar methods. This eliminates unwanted copying and pasting of duplicate XML comments and automatically keeps XML comments sychronized.
+
+

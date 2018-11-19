@@ -98,3 +98,6 @@ Avoid multiple statements that require a curly brace or a return statement with 
     // Avoid
     MyMethod((name)=>{Debug.WriteLine(name);MessageBox.Show(name);});
 
+
+
+
