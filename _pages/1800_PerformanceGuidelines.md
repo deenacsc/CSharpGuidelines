@@ -6,7 +6,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av1800"></a> Consider using `Any()` to determine whether an `IEnumerable<T>` is empty (AV1800) ![](/assets/images/3.png)
+### <a name="av1800"></a> Consider using `Any()` to determine whether an `IEnumerable<T>` is empty (AV1800) ![](/assets/images/3.png) ![](/assets/images/R.png)
 When a member or local function returns an `IEnumerable<T>` or other collection class that does not expose a `Count` property, use the `Any()` extension method rather than `Count()` to determine whether the collection contains items. If you do use `Count()`, you risk that iterating over the entire collection might have a significant impact (such as when it really is an `IQueryable<T>` to a persistent store).
 
 **Note:** If you return an `IEnumerable<T>` to prevent changes from calling code as explained in AV1130, and you're developing in .NET 4.5 or higher, consider the new read-only classes.
@@ -25,17 +25,27 @@ Consider the following asynchronous method:
 
 	private async Task GetDataAsync()
 	{
-		var result = await MyWebService.GetDataAsync();
-		return result.ToString();
+	    string result = await MyData.GetDataAsync();
+	    return result;
 	}
 
-Now when an ASP.NET MVC controller action does this:
+Now when a button click does this:
 
-	public ActionResult ActionAsync()
-	{
-		var data = GetDataAsync().Result;
-		
-		return View(data);  
-	}
+	private void OkButtonOnClick(object sender, EventArgs e)
+    {
+        string data = GetDataAsync().Result;
+        Preview(data);
+    }
 
-You end up with a deadlock. Why? Because the `Result` property getter will block until the `async` operation has completed, but since an `async` method will automatically marshal the result back to the original thread and ASP.NET uses a single-threaded synchronization context, they'll be waiting on each other. A similar problem can also happen on WPF, Silverlight or a Windows Store C#/XAML app. Read more about this [here](http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115163.aspx).
+You end up with a deadlock. Why? Because the `Result` property getter will block until the `async` operation has completed, but since an `async` method will automatically marshal the result back to the original thread, they'll be waiting on each other. Read more about this [here](http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115163.aspx).
+
+### <a name="crd1800"></a> Implement Dispose() when appropriate (CRD1800) ![](/assets/images/1.png)
+Always clean up unmanaged resource and unsubscribe from events by implementing Dispose() in the class.
+
+### <a name="crd1801"></a> Use `using` or `try-finally` to release unmanaged resources  (CRD1801) ![](/assets/images/1.png)
+Use `using` if the object is IDisposable and the scope of the object is local to the block in which it is declared. Otherwise use `try-finally` to release unmanaged reources.
+
+    using (OpenFileDialog openFileDialog = new OpenFileDialog()) 
+    {
+        openFileDialog.Show();
+    }	

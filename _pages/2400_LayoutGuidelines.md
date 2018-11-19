@@ -7,17 +7,10 @@ sidebar:
 ---
 
 ### <a name="av2400"></a> Use a common layout (AV2400) ![](/assets/images/1.png)
-
-- Keep the length of each line under 130 characters.
-
 - Use an indentation of 4 spaces, and don't use tabs
-
 - Keep one space between keywords like `if` and the expression, but don't add spaces after `(` and before `)` such as: `if (condition == null)`.
-
 - Add a space around operators like `+`, `-`, `==`, etc.
-
 - Always put opening and closing curly braces on a new line.
-
 - Don't indent object/collection initializers and initialize each property on a new line, so use a format like this: 
 
 		var dto = new ConsumerDto
@@ -45,20 +38,12 @@ sidebar:
 
 - Put the entire LINQ statement on one line, or start each keyword at the same indentation, like this:
 
-		var query = from product in products where product.Price > 10 select product;
-
-  	or
-
 		var query =  
 		    from product in products  
 		    where product.Price > 10  
 		    select product;
 
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
-- Add parentheses around every binary expression, but don't add parentheses around unary expressions. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
-
-- Add an empty line between multi-line statements, between multi-line members, after the closing curly braces, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
-
 
 ### <a name="av2402"></a> Order and group namespaces according to the company (AV2402) ![](/assets/images/3.png)
 
@@ -68,8 +53,8 @@ sidebar:
 	using System.XML;
 	
 	// Then any other namespaces in alphabetic order
-	using AvivaSolutions.Business;
-	using AvivaSolutions.Standard;
+	using Crd.BusinessRule;
+	using Crd.Standard;
 	using Telerik.WebControls;
 	using Telerik.Ajax;
 
@@ -90,15 +75,26 @@ Maintaining a common order allows other team members to find their way in your c
 
 Declare local functions at the bottom of their containing method bodies (after all executable code).
 
-### <a name="av2407"></a> Be reluctant with `#region` (AV2407) ![](/assets/images/1.png)
-Regions can be helpful, but can also hide the main purpose of a class. Therefore, use `#region` only for:
-
-- Private fields and constants (preferably in a `Private Definitions` region).
-- Nested classes
-- Interface implementations (only if the interface is not the main purpose of that class)
-
 ### <a name="av2410"></a> Use expression-bodied members appropriately (AV2410) ![](/assets/images/1.png)
 Favor expression-bodied member syntax over regular member syntax only when:
 
 - the body consists of a single statement and
 - the body fits on a single line.
+
+### <a name="crd2400"></a> Respect existing indentation and formatting of the source file you are working on (CRD2400) ![](/assets/images/2.png)
+Do not automatically reformat existing source without consulting the team lead for that area. When creating a new file, preserve the formatting of the other files in the same package or namespace
+
+### <a name="crd2401"></a> Only use in-line Lambda expressions when they contain a single statement (CRD2401) ![](/assets/images/1.png)
+Avoid multiple statements that require a curly brace or a return statement with in-line expressions. Omit parentheses.
+
+    delegate void SomeDelegate(string someString);
+
+    void MyMethod(SomeDelegate someDelegate)
+    {
+	}
+
+    // Correct
+    MyMethod(name=>MessageBox.Show(name)); 
+    // Avoid
+    MyMethod((name)=>{Debug.WriteLine(name);MessageBox.Show(name);});
+
