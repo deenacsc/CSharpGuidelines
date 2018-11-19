@@ -15,6 +15,7 @@ All identifiers (such as types, type members, parameters and variables) should b
 - Avoid using names that conflict with keywords of widely used programming languages.
 
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) ![](/assets/images/R.png)
+
 | Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example|
 |--------------------|----------|:-----------
 | Namespace | Pascal | `System.Drawing` |

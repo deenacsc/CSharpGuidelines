@@ -1,6 +1,7 @@
 ## 1.1. What is this?
 
 This document attempts to provide C# coding guidelines that are both useful and pragmatic. 
+A cheatsheet for this document is available [here](/Artifacts/CSharpCodingGuidelinesCheatSheet.htm). Make sure you have the cheatsheet close at hand. 
 
 ## 1.2. Why would you use this document?
 

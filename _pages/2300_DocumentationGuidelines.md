@@ -14,5 +14,5 @@ Documenting your code allows Visual Studio to pop-up the documentation when your
 
 Try to focus comments on the *why* and *what* of a code block and not the *how*. Avoid explaining the statements in words, but instead help the reader understand why you chose a certain solution or algorithm and what you are trying to achieve. If applicable, also mention that you chose an alternative solution because you ran into a problem with the obvious solution.
 
-### <a name="av2351"></a> Use InheritDoc (AV2351) ![](/assets/images/1.png) ![](/assets/images/R.png)
+### <a name="av2351"></a> Use InheritDoc (CRD2300) ![](/assets/images/1.png) ![](/assets/images/R.png)
 Add `<inheritdoc/>` tag to XML comments in C# source code to inherit XML comments from base classes, interfaces, and similar methods. This eliminates unwanted copying and pasting of duplicate XML comments and automatically keeps XML comments sychronized.

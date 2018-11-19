@@ -130,7 +130,7 @@ If a class or a method offers both generic and non-generic flavors, always prefe
 	// This causes an InvalidCastException to be returned.
 	foreach (int x in list)
 	{
-    		t += x;
+     t += x;
 	}
 	
 ### <a name="crd1203"></a> Use explicit interface implementation on all methods when implementing a generic interface that derives from a non generic interface (CRD1203) ![](/assets/images/2.png)

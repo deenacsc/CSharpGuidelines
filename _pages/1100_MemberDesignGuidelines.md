@@ -43,4 +43,4 @@ If your method or local function needs a specific piece of data, define paramete
 Instead of using strings, integers and decimals for representing domain-specific types such as an ISBN number, an email address or amount of money, consider creating dedicated value objects that wrap both the data and the validation rules that apply to it. By doing this, you prevent ending up having multiple implementations of the same business rules, which both improves maintainability and prevents bugs.
 
 ### <a name="crd1100"></a> Do not have non private fields in a class (CRD1100) ![](/assets/images/1.png) ![](/assets/images/R.png)
-Always use a property instead of a non private field. This gives the class control over the read and write operations.
+Always use a property instead of a non private field.
