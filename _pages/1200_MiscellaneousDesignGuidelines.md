@@ -42,8 +42,7 @@ When throwing or handling exceptions in code that uses `async`/`await` or a `Tas
 	public event RunDelegate Run;
 	
 	// Do
-	public event EventHandler<KeyPressEventArgs> Run;
-	
+	public event EventHandler<KeyPressEventArgs> Run;	
 
 ### <a name="av1220"></a> Always check an event handler delegate for `null` (AV1220) ![](/codingguidelines/assets/images/1.png) ![](/codingguidelines/assets/images/R.png)
 An event that has no subscribers is `null`. So before invoking, always make sure that the delegate list represented by the event variable is not `null`.
@@ -163,7 +162,7 @@ Consider the following code snippet
 		return query.ToList();  
 		
 		// Don't
-		return query;		
+		// return query;		
 	}
 
 Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` loop or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.

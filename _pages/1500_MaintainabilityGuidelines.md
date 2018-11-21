@@ -101,7 +101,6 @@ Only use `var` as the result of a LINQ query, or if the type is very obvious fro
 Instead, use `var` like this:
 
 	var query = from order in orders where order.Items > 10 and order.TotalValue > 1000;
-	var repository = new RepositoryFactory.Get();	
 	var list = new ReadOnlyCollection();
 	
 In all of three above examples it is clear what type to expect. For a more detailed rationale about the advantages and disadvantages of using `var`, read Eric Lippert's [Uses and misuses of implicit typing](http://blogs.msdn.com/b/ericlippert/archive/2011/04/20/uses-and-misuses-of-implicit-typing.aspx).
@@ -254,7 +253,7 @@ Express your intentions directly. For example, rather than:
 
 write:
 
-	bool isPositive = (value > 0);
+	bool isPositive = value > 0;
 
 Or instead of:
 
@@ -273,7 +272,7 @@ Or instead of:
 
 write:
 
-	return (value > 0) ? "positive" : "negative";
+	return value > 0 ? "positive" : "negative";
 
 Or instead of:
 
@@ -361,8 +360,8 @@ The class `MyString` provides three overloads for the `IndexOf` method, but two 
 
 **Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a non-private `virtual` method that is called by all overloads.
 
-### <a name="av1553"></a> Only use optional arguments to replace overloads (AV1553) ![](/assets/images/1.png)
-The only valid reason for using C# 4.0's optional arguments is to replace the example from rule AV1551 with a single method like:
+### <a name="av1553"></a> Use optional arguments to replace overloads (AV1553) ![](/assets/images/1.png)
+The only valid reason for using C# 4.0’s optional arguments is to replace the example from rule AV1551 with a single method like:	
 
     public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
     {
@@ -392,7 +391,7 @@ They make code less understandable and might cause people to introduce bugs. Ins
 
 	bool success = int.TryParse(text, out int number);
 
-### <a name="av1564"></a> Avoid signatures that take a `bool` parameter (AV1564) ![](/assets/images/2.png) ![](/assets/images/A.png)
+### <a name="av1564"></a> Avoid signatures that take a `bool` parameter (AV1564) ![](/assets/images/3.png) ![](/assets/images/A.png)
 Consider the following method signature:
 
 	public Customer CreateCustomer(bool platinumLevel) {}

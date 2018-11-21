@@ -109,7 +109,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Only use optional arguments to replace overloads (AV1553)
 * Don't declare signatures with more than 5 parameters (AV1561)
 * Don't use `ref` or `out` parameters (AV1562)
-* Avoid signatures that take a `bool` flag (AV1564)
 * Don't comment out code (AV1575)
 </td>
 <tr>
