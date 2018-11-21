@@ -68,17 +68,17 @@ For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single characte
 
 	class Employee
 	{
-		// Wrong!
-		static GetEmployee() {...}
-		DeleteEmployee() {...}
+	   // Wrong!
+	   static GetEmployee() {...}
+	   DeleteEmployee() {...}
 		
-		// Right
-		static Get() {...}
-		Delete() {...}
+	   // Right
+	   static Get() {...}
+	   Delete() {...}
 		
-		// Also correct.
-		AddNewJob() {...}
-		RegisterForMeeting() {...}
+	   // Also correct.
+	   AddNewJob() {...}
+	   RegisterForMeeting() {...}
 	}
 
 ### <a name="av1711"></a> Name members similarly to members of related .NET Framework classes (AV1711) ![](/assets/images/3.png) ![](/assets/images/A.png)

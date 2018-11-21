@@ -6,30 +6,30 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av1501"></a> Make all members `private` and types `internal sealed` by default (AV1501) ![](/assets/images/1.png)
+### <a name="av1501"></a> Make all members `private` and types `internal sealed` by default (AV1501) ![](/codingguidelines/assets/images/1.png)
 To make a more conscious decision on which members to make available to other classes, first restrict the scope as much as possible. Then carefully decide what to expose as a public member or type.
 
 ### <a name="crd1501"></a> Avoid defining `virtual` methods (CRD1501) ![](/assets/images/1.png)
 Only mark methods as virtual when absolutely necessary. Don’t anticipate a future need.
 
-### <a name="av1502"></a> Avoid conditions with double negatives (AV1502) ![](/assets/images/2.png) ![](/assets/images/A.png)
+### <a name="av1502"></a> Avoid conditions with double negatives (AV1502) ![](/assets/images/2.png) ![](/codingguidelines/assets/images/A.png)
 Although a property like `customer.HasNoOrders` makes sense, avoid using it in a negative condition like this:
 
 	bool hasOrders = !customer.HasNoOrders;
 
 Double negatives are more difficult to grasp than simple expressions, and people tend to read over the double negative easily.
 
-### <a name="av1505"></a> Name assemblies after their contained namespace (AV1505) ![](/assets/images/3.png) ![](/assets/images/A.png)
+### <a name="av1505"></a> Name assemblies after their contained namespace (AV1505) ![](/codingguidelines/assets/images/3.png) ![](/codingguidelines/assets/images/A.png)
 All DLLs should be named according to the pattern *Company*.*Component*.dll where *Company* refers to your company's name and *Component* contains one or more dot-separated clauses. For example `Crd.Web.Controls.dll`.
 
 As an example, consider a group of classes organized under the namespace `Crd.Web.Binding` exposed by a certain assembly. According to this guideline, that assembly should be called `Crd.Web.Binding.dll`. 
 
 **Exception:** If you decide to combine classes from multiple unrelated namespaces into one assembly, consider suffixing the assembly name with `Core`, but do not use that suffix in the namespaces. For instance, `Crd.Consulting.Core.dll`.
 
-### <a name="av1506"></a> Name a source file to the type it contains (AV1506) ![](/assets/images/3.png)  ![](/assets/images/A.png)
+### <a name="av1506"></a> Name a source file to the type it contains (AV1506) ![](/codingguidelines/assets/images/3.png)  ![](/codingguidelines/assets/images/A.png)
 Use Pascal casing to name the file and don't use underscores. Don't include (the number of) generic type parameters in the file name.
 
-### <a name="av1507"></a> Limit the contents of a source code file to one type (AV1507) ![](/assets/images/3.png)  ![](/assets/images/A.png)
+### <a name="av1507"></a> Limit the contents of a source code file to one type (AV1507) ![](/assets/images/3.png)  ![](/codingguidelines/assets/images/A.png)
 
 **Exception:** Nested types should be part of the same file.
 
@@ -43,11 +43,13 @@ When using partial types and allocating a part per file, name each file after th
 
 	// In MyClass.cs
 	public partial class MyClass
-	{...}	
+	{
+	}	
 	
 	// In MyClass.Designer.cs	
 	public partial class MyClass
-	{...}
+	{
+	}
 
 ### <a name="av1510"></a> Use `using` statements instead of fully qualified type names (AV1510) ![](/assets/images/3.png)
 Limit usage of fully qualified type names to prevent name clashing. For example, don't do this:
@@ -67,9 +69,9 @@ Don't use literal values, either numeric or strings, in your code, other than to
 
 	public class Whatever  
 	{
-		public static readonly Color PapayaWhip = new Color(0xFFEFD5);
-		public const int MaxNumberOfWheels = 18;
-		public const byte ReadCreateOverwriteMask = 0b0010_1100;
+	   public static readonly Color PapayaWhip = new Color(0xFFEFD5);
+	   public const int MaxNumberOfWheels = 18;
+	   public const byte ReadCreateOverwriteMask = 0b0010_1100;
 	}
 	
 Strings intended for logging or tracing are exempt from this rule. Literals are allowed when their meaning is clear from the context, and not subject to future changes, For example:
@@ -81,8 +83,8 @@ If the value of one constant depends on the value of another, attempt to make th
 
 	public class SomeSpecialContainer  
 	{  
-		public const int MaxItems = 32;  
-		public const int HighWaterMark = 3 * MaxItems / 4; // at 75%  
+	   public const int MaxItems = 32;  
+	   public const int HighWaterMark = 3 * MaxItems / 4; // at 75%  
 	}
 	
 **Note:** An enumeration can often be used for certain types of symbolic constants.
@@ -139,16 +141,16 @@ Use [Object and Collection Initializers](http://msdn.microsoft.com/en-us/library
 
 	var startInfo = new ProcessStartInfo("myapp.exe")  
 	{
-		StandardOutput = Console.Output,
-		UseShellExecute = true  
+	   StandardOutput = Console.Output,
+	   UseShellExecute = true  
 	};
 	
 	var countries = new List { "Netherlands", "United States" };
 	
 	var countryLookupTable = new Dictionary<string, string>
 	{
-		["NL"] = "Netherlands",
-		["US"] = "United States"
+	   ["NL"] = "Netherlands",
+	   ["US"] = "United States"
 	};
 
 ### <a name="av1525"></a> Don't make explicit comparisons to `true` or `false` (AV1525) ![](/assets/images/1.png) ![](/assets/images/R.png)
@@ -165,10 +167,10 @@ Updating the loop variable within the loop body is generally considered confusin
 
 	for (int index = 0; index < 10; ++index)  
 	{  
-		if (someCondition)
-		{
-			index = 11; // Wrong! Use 'break' or 'continue' instead.  
-		}
+	   if (someCondition)
+	   {
+	       index = 11; // Wrong! Use 'break' or 'continue' instead.  
+	   }
 	}
 
 ### <a name="av1532"></a> Avoid nested loops (AV1532) ![](/assets/images/2.png) ![](/assets/images/A.png)
@@ -182,14 +184,14 @@ Please note that this also avoids possible confusion in statements of the form:
 	// The right way:  
 	if (isActive)  
 	{  
-		if (isVisible)  
-		{  
-			Foo();  
-		}  
-		else  
-		{  
-			Bar();  
-		}  
+	   if (isVisible)  
+	   {  
+		   Foo();  
+	   }  
+	   else  
+	   {  
+		   Bar();  
+	   }  
 	}
 
 ### <a name="av1536"></a> Always add a `default` block after the last `case` in a `switch` statement (AV1536) ![](/assets/images/1.png) ![](/assets/images/A.png)  ![](/assets/images/R.png)
@@ -197,20 +199,20 @@ Add a descriptive comment if the `default` block is supposed to be empty. Moreov
 
 	void Foo(string answer)  
 	{  
-		switch (answer)  
-		{  
-			case "no":  
-			 Console.WriteLine("You answered with No");  
-			 break;
+	   switch (answer)  
+	   {  
+		   case "no":  
+		     Console.WriteLine("You answered with No");  
+		     break;
 			  
-			case "yes":
-			  Console.WriteLine("You answered with Yes");  
-			  break;
+		   case "yes":
+		     Console.WriteLine("You answered with Yes");  
+		     break;
 			
-			default:  
-			  // Not supposed to end up here.  
-			  throw new InvalidOperationException("Unexpected answer " + answer);
-		}  
+		   default:  
+		      // Not supposed to end up here.  
+		     throw new InvalidOperationException("Unexpected answer " + answer);
+	   }  
 	}
 
 ### <a name="av1537"></a> Finish every `if`-`else`-`if` statement with an `else` clause (AV1537) ![](/assets/images/2.png) ![](/assets/images/A.png)
@@ -218,19 +220,19 @@ For example:
 
 	void Foo(string answer)  
 	{  
-		if (answer == "no")  
-		{  
-			Console.WriteLine("You answered with No");  
-		}  
-		else if (answer == "yes")  
-		{  
-			Console.WriteLine("You answered with Yes");  
-		}  
-		else  
-		{  
-			// What should happen when this point is reached? Ignored? If not,
-			// throw an InvalidOperationException.  
-		}  
+	   if (answer == "no")  
+	   {  
+	       Console.WriteLine("You answered with No");  
+	   }  
+	   else if (answer == "yes")  
+	   {  
+	       Console.WriteLine("You answered with Yes");  
+	   }  
+	   else  
+	   {  
+	       // What should happen when this point is reached? Ignored? If not,
+		   // throw an InvalidOperationException.  
+	    }  
 	}
 
 ### <a name="av1540"></a> Be reluctant with multiple `return` statements (AV1540) ![](/assets/images/2.png) 
@@ -243,11 +245,11 @@ Express your intentions directly. For example, rather than:
 
 	if (value > 0)
 	{
-		isPositive = true;
+	   isPositive = true;
 	}
 	else
 	{
-		isPositive = false;
+	   isPositive = false;
 	}
 
 write:
@@ -260,11 +262,11 @@ Or instead of:
 
 	if (value > 0)
 	{
-		classification = "positive";
+	   classification = "positive";
 	}
 	else
 	{
-		classification = "negative";
+	   classification = "negative";
 	}
 
 	return classification;
@@ -279,11 +281,11 @@ Or instead of:
 
 	if (offset == null)
 	{
-		result = -1;
+	   result = -1;
 	}
 	else
 	{
-		result = offset.Value;
+	   result = offset.Value;
 	}
 
 	return result;
@@ -296,11 +298,11 @@ Or instead of:
 
 	if (employee.Manager != null)
 	{
-		return employee.Manager.Name;
+	   return employee.Manager.Name;
 	}
 	else
 	{
-		return null;
+	   return null;
 	}
 
 write:
@@ -312,22 +314,22 @@ Consider the following example:
 
 	if (member.HidesBaseClassMember && (member.NodeType != NodeType.InstanceInitializer))
 	{
-		// do something
+	   // do something
 	}
 
 In order to understand what this expression is about, you need to analyze its exact details and all of its possible outcomes. Obviously, you can add an explanatory comment on top of it, but it is much better to replace this complex expression with a clearly named method:
 
 	if (NonConstructorMemberUsesNewKeyword(member))  
 	{  
-		// do something
+	   // do something
 	}  
   
   
 	private bool NonConstructorMemberUsesNewKeyword(Member member)  
 	{  
-		return
-			(member.HidesBaseClassMember &&
-			(member.NodeType != NodeType.InstanceInitializer)  
+	   return
+		    (member.HidesBaseClassMember &&
+		    (member.NodeType != NodeType.InstanceInitializer)  
 	}
 
 You still need to understand the expression if you are modifying it, but the calling code is now much easier to grasp.
@@ -337,21 +339,21 @@ This guideline only applies to overloads that are intended to provide optional a
 
 	public class MyString  
 	{
-		private string someText;
+	   private string someText;
 		
-		public int IndexOf(string phrase)  
-		{  
-			return IndexOf(phrase, 0); 
-		}
+	   public int IndexOf(string phrase)  
+	   {  
+		   return IndexOf(phrase, 0); 
+	   }
 		
 		public int IndexOf(string phrase, int startIndex)  
 		{  
-			return IndexOf(phrase, startIndex, someText.Length - startIndex);
+		   return IndexOf(phrase, startIndex, someText.Length - startIndex);
 		}
 		
 		public virtual int IndexOf(string phrase, int startIndex, int count)  
 		{  
-			return someText.IndexOf(phrase, startIndex, count);
+		   return someText.IndexOf(phrase, startIndex, count);
 		}  
 	}
 
@@ -378,6 +380,7 @@ If the optional parameter is a reference type then it can only have a default va
 To keep constructors, methods, delegates and local functions small and focused, do not use more than five parameters. Do not use tuple parameters. Do not return tuples with more than two elements.
 
 If you want to use more parameters, use a structure or class to pass multiple arguments, as explained in the [Specification design pattern](http://en.wikipedia.org/wiki/Specification_pattern). 
+
 In general, the fewer the parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
 
 **Exception:** A parameter that is a collection of tuples is allowed.

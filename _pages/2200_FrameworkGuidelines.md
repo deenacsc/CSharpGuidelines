@@ -77,7 +77,7 @@ Lambda expressions provide a more elegant alternative for anonymous methods. So 
 
 	Customer customer = Array.Find(customers, delegate(Customer customer)
 	{
-		return customer.Name == "Tom";
+	   return customer.Name == "Tom";
 	});
 
 use a lambda expression:

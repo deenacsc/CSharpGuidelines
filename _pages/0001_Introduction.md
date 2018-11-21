@@ -37,6 +37,13 @@ To help you in this decision, a level of importance is assigned to each guidelin
 
 Each guideline also contains an indication whether it is covered by Visual Studio/Resharper DotSettings file or through the Code Analyzer extension:
 
-![](/codingguidelines/assets/images/A.png) Coding Analyzer
+![](/codingguidelines/assets/images/A.png) Code Analyzer
 
 ![](/codingguidelines/assets/images/R.png) Resharper settings
+
+
+
+
+
+
+
