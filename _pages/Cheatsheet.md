@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title">Crd Coding Guidelines Cheat Sheet</td>
+<td class="title">Crd C# Coding Guidelines Cheat Sheet</td>
 </tr>
 <tr>
 <td><div class="subTitle">Design & Maintainability</div> (level 1 and 2 only)</td>
@@ -122,7 +122,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" style="page-break-before: always;">
  <tr>
-  <td class="title">Crd Coding Guidelines Cheat Sheet</td>
+  <td class="title">Crd C# Coding Guidelines Cheat Sheet</td>
  </tr>
  <tr>
  <td><div class="subTitle">Naming, Layout & Performance</div> (level 1 and 2 only)</td>
