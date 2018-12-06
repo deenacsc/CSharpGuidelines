@@ -29,17 +29,17 @@ The document does not state that projects must comply with these guidelines, nei
 
 To help you in this decision, a level of importance is assigned to each guideline:
 
-![](/codingguidelines/assets/images/1.png) Guidelines that you should never skip and should be applicable to all situations
+![](/assets/images/1.png) Guidelines that you should never skip and should be applicable to all situations
 
-![](/codingguidelines/assets/images/2.png) Strongly recommended guidelines
+![](/assets/images/2.png) Strongly recommended guidelines
 
-![](/codingguidelines/assets/images/3.png) May not be applicable in all situations
+![](/assets/images/3.png) May not be applicable in all situations
 
 Each guideline also contains an indication whether it is covered by Visual Studio/Resharper DotSettings file or through the Code Analyzer extension:
 
-![](/codingguidelines/assets/images/A.png) Coding Analyzer
+![](/assets/images/A.png) Coding Analyzer
 
-![](/codingguidelines/assets/images/R.png) Resharper settings
+![](/assets/images/R.png) Resharper settings
 
 
 
