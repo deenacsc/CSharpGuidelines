@@ -27,7 +27,7 @@ In a catch statement that throws an exception, always throw the original excepti
         throw;
     }
 
-### <a name="av1210"></a> Don't swallow errors by catching generic exceptions (AV1210) ![](/codingguidelines/assets/images/1.png) ![](/codingguidelines/assets/images/A.png)
+### <a name="av1210"></a> Don't swallow errors by catching generic exceptions (AV1210) ![](/codingguidelines/assets/images/2.png) ![](/codingguidelines/assets/images/A.png)
 Catch only exceptions for which you have explicit handling. Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only in top-level code, such as a last-chance exception handler, you should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
 
 ### <a name="av1215"></a> Properly handle exceptions in asynchronous code (AV1215) ![](/codingguidelines/assets/images/2.png)
@@ -146,7 +146,7 @@ When implementing a generic interface that derives from an equivalent non-generi
         }
     }	
 	
-### <a name="av1250"></a> Evaluate the result of a LINQ expression before returning it (AV1250) ![](/codingguidelines/assets/images/1.png) ![](/codingguidelines/assets/images/A.png)
+### <a name="av1250"></a> Evaluate the result of a LINQ expression before returning it (AV1250) ![](/codingguidelines/assets/images/2.png) ![](/codingguidelines/assets/images/A.png)
 Consider the following code snippet
 
  	public IReadOnlyCollection<GoldMember> GetGoldMemberCustomers()
